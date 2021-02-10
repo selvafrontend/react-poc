@@ -1,0 +1,11 @@
+{
+    "uid": "iboard",
+    "append": true,
+    "watch": true,
+    "script": "index.js",
+    "sourceDir": "/home", 
+    "args": [
+      "--port",
+      "8080"
+    ]
+  }

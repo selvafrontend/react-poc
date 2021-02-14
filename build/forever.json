@@ -1,0 +1,8 @@
+{
+  "uid": "app",
+  "append": true,
+  "watch": true,
+  "script": "index.js",
+  "sourceDir": "",
+  "args": ["--port", "8080"]
+}

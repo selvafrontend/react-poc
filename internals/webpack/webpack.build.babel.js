@@ -73,7 +73,7 @@ module.exports = require('./webpack.base.babel')({
     splitChunks: {
       chunks: 'all',
       maxInitialRequests: 10,
-      minSize: 0,
+      minSize: 2000,
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
@@ -155,7 +155,7 @@ module.exports = require('./webpack.base.babel')({
       deleteOriginalAssets: true,
     }),
 
-    new WebpackPwaManifest({
+   /* new WebpackPwaManifest({
       name: 'React Boilerplate',
       short_name: 'React BP',
       description: 'My React Boilerplate-based project!',
@@ -174,7 +174,7 @@ module.exports = require('./webpack.base.babel')({
           ios: true,
         },
       ],
-    }),
+    }),*/
 
     new HashedModuleIdsPlugin({
       hashFunction: 'sha256',

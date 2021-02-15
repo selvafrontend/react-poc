@@ -21,10 +21,10 @@
     "compile": "node ./internals/scripts/file-helper.js",
     "preinstall": "npm run npmcheckversion",
     "prebuild": "npm run build:clean",
-    "dev": "npm run prebuild && cross-env NODE_ENV=development webpack --config internals/webpack/webpack.build.babel.js --color -p --progress --hide-modules --display-optimization-bailout && cross-env NODE_ENV=development npm run compile",
-    "qa": "npm run prebuild && cross-env NODE_ENV=qa webpack --config internals/webpack/webpack.build.babel.js --color -p --progress --hide-modules --display-optimization-bailout && cross-env NODE_ENV=qa npm run compile",
-    "stg": "npm run prebuild && cross-env NODE_ENV=stage webpack --config internals/webpack/webpack.build.babel.js --color -p --progress --hide-modules --display-optimization-bailout && cross-env NODE_ENV=stage npm run compile",
-    "prd": "npm run prebuild && cross-env NODE_ENV=production webpack --config internals/webpack/webpack.build.babel.js --color -p --progress --hide-modules --display-optimization-bailout && cross-env NODE_ENV=production npm run compile",
+    "dev": "npm run prebuild && cross-env NODE_ENV=development webpack --config internals/webpack/webpack.build.babel.js --color -p --progress --hide-modules --display-optimization-bailout && cross-env NODE_ENV=development npm run compile && npm run servernpm",
+    "qa": "npm run prebuild && cross-env NODE_ENV=qa webpack --config internals/webpack/webpack.build.babel.js --color -p --progress --hide-modules --display-optimization-bailout && cross-env NODE_ENV=qa npm run compile && npm run servernpm",
+    "stg": "cross-env NODE_ENV=stage webpack --config internals/webpack/webpack.build.babel.js --color -p --progress --hide-modules --display-optimization-bailout && cross-env NODE_ENV=stage npm run compile && npm run servernpm",
+    "prd": "npm run prebuild && cross-env NODE_ENV=production webpack --config internals/webpack/webpack.build.babel.js --color -p --progress --hide-modules --display-optimization-bailout && cross-env NODE_ENV=production npm run compile && npm run servernpm",
     "build:clean": "rimraf ./build",
     "start": "cross-env NODE_ENV=development node server",
     "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
@@ -46,7 +46,8 @@
     "test": "cross-env NODE_ENV=test jest --coverage",
     "test:watch": "cross-env NODE_ENV=test jest --watchAll",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "prettify": "prettier --write"
+    "prettify": "prettier --write",
+    "servernpm": "cd build && npm install"
   },
   "browserslist": [
     "last 2 versions",

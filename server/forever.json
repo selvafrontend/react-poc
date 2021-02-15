@@ -1,11 +1,8 @@
 {
-    "uid": "iboard",
-    "append": true,
-    "watch": true,
-    "script": "index.js",
-    "sourceDir": "/home", 
-    "args": [
-      "--port",
-      "8080"
-    ]
-  }
+  "uid": "react-poc",
+  "append": true,
+  "watch": true,
+  "script": "index.js",
+  "sourceDir": "",
+  "args": ["--port", "8080"]
+}

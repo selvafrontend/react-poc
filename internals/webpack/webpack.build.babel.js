@@ -72,21 +72,26 @@ module.exports = require('./webpack.base.babel')({
     runtimeChunk: 'single',
     splitChunks: {
       chunks: 'all',
-      maxInitialRequests: 10,
-      minSize: 2000,
+      minChunks:1,
+      maxAsyncRequests:5,
+      maxInitialRequests: 3,
+      name: true,
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name(module) {
-            const packageName = module.context.match(
-              /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
-            )[1];
-            return `npm.${packageName.replace('@', '')}`;
+          name: 'vendor',
           },
         },
-      },
+      },  
+      namedChunks: true,
+      runtimeChunk: true,
+      removeAvailableModules: true,
+      removeEmptyChunks: true,
+      mergeDuplicateChunks: true,
+      mangleWasmImports: true,
     },
-  },
+    
+  
 
   plugins: [
     // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
@@ -182,7 +187,7 @@ module.exports = require('./webpack.base.babel')({
       hashDigestLength: 20,
     }),
   ],
-
+  devtool: '',
   performance: {
     assetFilter: assetFilename =>
       !/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename),

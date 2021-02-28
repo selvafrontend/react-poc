@@ -23,10 +23,11 @@ export default function HomePage() {
         <h2>
           <FormattedMessage {...messages.boardTitle} />
         </h2>
-       
+        <div id="sample1"></div>
+        <div id="sample2"></div>
       </div>
       <footer>
-      <div id="logo">
+        <div id="logo">
           <FormattedMessage {...messages.footer} />
         </div>
       </footer>

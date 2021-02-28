@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import sample from "../../images/sample.jpg";
+import subscribe from "../../images/subscribe.png";
 
 const Home = styled.div`
   * {
@@ -52,6 +54,18 @@ const Home = styled.div`
         }
       }
     }
+  }
+  #sample1 {
+    width: 100%;
+    height: 100px;
+    background: url(${sample}) no-repeat;
+    background-size: contain;
+  }
+  #sample2 {
+    width: 100%;
+    height: 100px;
+    background: url(${subscribe}) no-repeat;
+    background-size: contain;
   }
 `;
 
